@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage donations on Community Connect - Post, track, and claim donations of food, clothes, educational materials and more.">
+  <title>Donations - Community Connect</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="bg-orbs">
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <span class="brand-icon">🤝</span>
+        Community Connect
+      </a>
+      <ul class="nav-links">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="donations.html" class="active">Donations</a></li>
+        <li><a href="ngos.html">NGOs</a></li>
+        <li><a href="requests.html">Requests</a></li>
+        <li><a href="volunteers.html">Activities</a></li>
+        <li><a href="impact.html">Impact</a></li>
+      </ul>
+      <div class="nav-user">
+        <div>
+          <div class="user-name" id="userName">User</div>
+          <div class="user-role" id="userRole">Role</div>
+        </div>
+        <button class="btn btn-secondary btn-sm" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-section-title">Main</div>
+      <ul class="sidebar-nav">
+        <li><a href="dashboard.html"><span class="nav-icon">📊</span> Dashboard</a></li>
+        <li><a href="donations.html" class="active"><span class="nav-icon">🎁</span> Donations</a></li>
+        <li><a href="ngos.html"><span class="nav-icon">🏢</span> NGOs</a></li>
+        <li><a href="requests.html"><span class="nav-icon">📋</span> Requests</a></li>
+        <li><a href="volunteers.html"><span class="nav-icon">🙋</span> Activities</a></li>
+        <li><a href="impact.html"><span class="nav-icon">🌍</span> Impact</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+        <div>
+          <h1>🎁 Donation Management</h1>
+          <p>Post, track, and manage resource donations</p>
+        </div>
+        <button class="btn btn-primary" id="addDonationBtn" onclick="openDonationModal()">+ New Donation</button>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-bar">
+        <select class="form-control" id="filterCategory" onchange="loadDonations()">
+          <option value="">All Categories</option>
+          <option value="food">🍽️ Food</option>
+          <option value="clothes">👕 Clothes</option>
+          <option value="education">📚 Education</option>
+          <option value="medical">💊 Medical</option>
+          <option value="other">📦 Other</option>
+        </select>
+        <select class="form-control" id="filterStatus" onchange="loadDonations()">
+          <option value="">All Status</option>
+          <option value="available">Available</option>
+          <option value="claimed">Claimed</option>
+          <option value="collected">Collected</option>
+          <option value="delivered">Delivered</option>
+        </select>
+      </div>
+
+      <!-- Donations Grid -->
+      <div class="data-grid" id="donationsGrid">
+        <div class="spinner"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Create/Edit Donation Modal -->
+  <div class="modal-overlay" id="donationModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modalTitle">New Donation</h2>
+        <button class="modal-close" onclick="closeDonationModal()">✕</button>
+      </div>
+      <form id="donationForm">
+        <input type="hidden" id="donationId">
+        <div class="form-group">
+          <label class="form-label" for="donTitle">Title</label>
+          <input type="text" id="donTitle" class="form-control" placeholder="e.g., Winter clothes collection" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="donCategory">Category</label>
+          <select id="donCategory" class="form-control" required>
+            <option value="food">🍽️ Food</option>
+            <option value="clothes">👕 Clothes</option>
+            <option value="education">📚 Education</option>
+            <option value="medical">💊 Medical</option>
+            <option value="other">📦 Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="donDescription">Description</label>
+          <textarea id="donDescription" class="form-control" placeholder="Describe the donation..." required></textarea>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div class="form-group">
+            <label class="form-label" for="donQuantity">Quantity</label>
+            <input type="number" id="donQuantity" class="form-control" placeholder="10" min="1" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="donUnit">Unit</label>
+            <input type="text" id="donUnit" class="form-control" placeholder="items, kg, boxes" value="items">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="donLocation">Location</label>
+          <input type="text" id="donLocation" class="form-control" placeholder="City, Area" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Submit Donation</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/donations.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Community Connect Impact Dashboard - See the collective social impact with real-time statistics and contribution breakdowns.">
+  <title>Impact Dashboard - Community Connect</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="bg-orbs">
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <span class="brand-icon">🤝</span>
+        Community Connect
+      </a>
+      <ul class="nav-links">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <li><a href="ngos.html">NGOs</a></li>
+        <li><a href="requests.html">Requests</a></li>
+        <li><a href="volunteers.html">Activities</a></li>
+        <li><a href="impact.html" class="active">Impact</a></li>
+      </ul>
+      <div class="nav-user">
+        <div>
+          <div class="user-name" id="userName">User</div>
+          <div class="user-role" id="userRole">Role</div>
+        </div>
+        <button class="btn btn-secondary btn-sm" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-section-title">Main</div>
+      <ul class="sidebar-nav">
+        <li><a href="dashboard.html"><span class="nav-icon">📊</span> Dashboard</a></li>
+        <li><a href="donations.html"><span class="nav-icon">🎁</span> Donations</a></li>
+        <li><a href="ngos.html"><span class="nav-icon">🏢</span> NGOs</a></li>
+        <li><a href="requests.html"><span class="nav-icon">📋</span> Requests</a></li>
+        <li><a href="volunteers.html"><span class="nav-icon">🙋</span> Activities</a></li>
+        <li><a href="impact.html" class="active"><span class="nav-icon">🌍</span> Impact</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h1>🌍 Impact Dashboard</h1>
+        <p>See the collective social impact of our community</p>
+      </div>
+
+      <!-- Animated Counters -->
+      <div class="impact-counters" id="impactCounters">
+        <div class="counter-card animate-in">
+          <div class="counter-value text-gradient" id="counterDonations">0</div>
+          <div class="counter-label">Total Donations</div>
+        </div>
+        <div class="counter-card animate-in">
+          <div class="counter-value" style="color: var(--accent-emerald);" id="counterDelivered">0</div>
+          <div class="counter-label">Delivered</div>
+        </div>
+        <div class="counter-card animate-in">
+          <div class="counter-value" style="color: var(--accent-blue);" id="counterNGOs">0</div>
+          <div class="counter-label">Active NGOs</div>
+        </div>
+        <div class="counter-card animate-in">
+          <div class="counter-value" style="color: var(--accent-amber);" id="counterVolunteers">0</div>
+          <div class="counter-label">Volunteers</div>
+        </div>
+        <div class="counter-card animate-in">
+          <div class="counter-value" style="color: var(--accent-cyan);" id="counterHours">0</div>
+          <div class="counter-label">Volunteer Hours</div>
+        </div>
+        <div class="counter-card animate-in">
+          <div class="counter-value" style="color: var(--accent-rose);" id="counterFulfilled">0</div>
+          <div class="counter-label">Requests Fulfilled</div>
+        </div>
+      </div>
+
+      <!-- Category Breakdown -->
+      <div class="glass-card" style="margin-bottom:32px;">
+        <h2 style="font-family:var(--font-heading); font-size:1.2rem; margin-bottom:24px;">📊 Donation Category Breakdown</h2>
+        <div class="progress-section" id="categoryBreakdown">
+          <p style="color:var(--text-muted);">Loading...</p>
+        </div>
+      </div>
+
+      <!-- SDG Alignment -->
+      <div class="glass-card" style="margin-bottom:32px;">
+        <h2 style="font-family:var(--font-heading); font-size:1.2rem; margin-bottom:24px;">🌐 SDG Alignment</h2>
+        <div class="sdg-grid">
+          <div class="sdg-item">
+            <div class="sdg-num" style="color: var(--accent-rose);">SDG 1</div>
+            <div class="sdg-label">No Poverty</div>
+          </div>
+          <div class="sdg-item">
+            <div class="sdg-num" style="color: var(--accent-amber);">SDG 2</div>
+            <div class="sdg-label">Zero Hunger</div>
+          </div>
+          <div class="sdg-item">
+            <div class="sdg-num" style="color: var(--accent-emerald);">SDG 3</div>
+            <div class="sdg-label">Good Health</div>
+          </div>
+          <div class="sdg-item">
+            <div class="sdg-num" style="color: var(--accent-blue);">SDG 4</div>
+            <div class="sdg-label">Quality Education</div>
+          </div>
+          <div class="sdg-item">
+            <div class="sdg-num" style="color: var(--accent-purple);">SDG 10</div>
+            <div class="sdg-label">Reduced Inequality</div>
+          </div>
+          <div class="sdg-item">
+            <div class="sdg-num" style="color: var(--accent-cyan);">SDG 17</div>
+            <div class="sdg-label">Partnerships</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Platform Stats -->
+      <div class="glass-card">
+        <h2 style="font-family:var(--font-heading); font-size:1.2rem; margin-bottom:24px;">📈 Platform Statistics</h2>
+        <div class="stats-grid">
+          <div class="stat-card purple">
+            <div class="stat-icon">👥</div>
+            <div class="stat-value" id="statDonors">0</div>
+            <div class="stat-label">Registered Donors</div>
+          </div>
+          <div class="stat-card emerald">
+            <div class="stat-icon">✅</div>
+            <div class="stat-value" id="statVerified">0</div>
+            <div class="stat-label">Verified NGOs</div>
+          </div>
+          <div class="stat-card blue">
+            <div class="stat-icon">📋</div>
+            <div class="stat-value" id="statTotalRequests">0</div>
+            <div class="stat-label">Total Requests</div>
+          </div>
+          <div class="stat-card amber">
+            <div class="stat-icon">🎯</div>
+            <div class="stat-value" id="statActivities">0</div>
+            <div class="stat-label">Activities Completed</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/impact.js"></script>
+</body>
+</html>

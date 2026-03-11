@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Volunteer Activities on Community Connect - Coordinate collection, distribution, and community events.">
+  <title>Volunteer Activities - Community Connect</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="bg-orbs">
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <span class="brand-icon">🤝</span>
+        Community Connect
+      </a>
+      <ul class="nav-links">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <li><a href="ngos.html">NGOs</a></li>
+        <li><a href="requests.html">Requests</a></li>
+        <li><a href="volunteers.html" class="active">Activities</a></li>
+        <li><a href="impact.html">Impact</a></li>
+      </ul>
+      <div class="nav-user">
+        <div>
+          <div class="user-name" id="userName">User</div>
+          <div class="user-role" id="userRole">Role</div>
+        </div>
+        <button class="btn btn-secondary btn-sm" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-section-title">Main</div>
+      <ul class="sidebar-nav">
+        <li><a href="dashboard.html"><span class="nav-icon">📊</span> Dashboard</a></li>
+        <li><a href="donations.html"><span class="nav-icon">🎁</span> Donations</a></li>
+        <li><a href="ngos.html"><span class="nav-icon">🏢</span> NGOs</a></li>
+        <li><a href="requests.html"><span class="nav-icon">📋</span> Requests</a></li>
+        <li><a href="volunteers.html" class="active"><span class="nav-icon">🙋</span> Activities</a></li>
+        <li><a href="impact.html"><span class="nav-icon">🌍</span> Impact</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+        <div>
+          <h1>🙋 Volunteer Activities</h1>
+          <p>Coordinate collection, distribution, and community events</p>
+        </div>
+        <button class="btn btn-primary" id="addActivityBtn" onclick="openActivityModal()" style="display:none;">+ Log Activity</button>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-bar">
+        <select class="form-control" id="filterType" onchange="loadActivities()">
+          <option value="">All Types</option>
+          <option value="collection">📦 Collection</option>
+          <option value="distribution">🚚 Distribution</option>
+          <option value="event">🎉 Event</option>
+        </select>
+        <select class="form-control" id="filterStatus" onchange="loadActivities()">
+          <option value="">All Status</option>
+          <option value="planned">Planned</option>
+          <option value="in-progress">In Progress</option>
+          <option value="completed">Completed</option>
+        </select>
+      </div>
+
+      <!-- Activities Timeline -->
+      <div id="activitiesContainer">
+        <div class="spinner"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Create Activity Modal -->
+  <div class="modal-overlay" id="activityModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Log Volunteer Activity</h2>
+        <button class="modal-close" onclick="closeActivityModal()">✕</button>
+      </div>
+      <form id="activityForm">
+        <div class="form-group">
+          <label class="form-label" for="actTitle">Activity Title</label>
+          <input type="text" id="actTitle" class="form-control" placeholder="e.g., Food collection drive" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="actType">Type</label>
+          <select id="actType" class="form-control" required>
+            <option value="collection">Collection</option>
+            <option value="distribution">Distribution</option>
+            <option value="event">Community Event</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="actDescription">Description</label>
+          <textarea id="actDescription" class="form-control" placeholder="Describe the activity..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="actLocation">Location</label>
+          <input type="text" id="actLocation" class="form-control" placeholder="Activity location" required>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div class="form-group">
+            <label class="form-label" for="actDate">Date</label>
+            <input type="date" id="actDate" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="actHours">Hours</label>
+            <input type="number" id="actHours" class="form-control" placeholder="0" min="0" step="0.5">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Log Activity</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/volunteers.js"></script>
+</body>
+</html>

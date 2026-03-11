@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Community Connect - A platform connecting donors, NGOs, volunteers, and beneficiaries to reduce resource wastage and support social welfare.">
+  <title>Community Connect - Empowering Communities Together</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Background Orbs -->
+  <div class="bg-orbs">
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <span class="brand-icon">🤝</span>
+        Community Connect
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="ngos.html">Discover NGOs</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <li><a href="impact.html">Impact</a></li>
+        <li id="nav-auth-links">
+          <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+        </li>
+        <li id="nav-dashboard-link" class="hidden">
+          <a href="dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+        </li>
+      </ul>
+      <div class="nav-toggle" id="nav-toggle" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          ✨ Aligned with UN Sustainable Development Goals
+        </div>
+        <h1>
+          Empowering <span class="text-gradient">Communities</span> Through Collective Action
+        </h1>
+        <p>
+          Connect with donors, NGOs, and volunteers on a single platform. Track donations, discover organizations, and make a measurable social impact — together.
+        </p>
+        <div class="hero-buttons">
+          <a href="register.html" class="btn btn-primary btn-lg">Get Started Free</a>
+          <a href="#features" class="btn btn-secondary btn-lg">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Cards -->
+    <div class="hero-visual">
+      <div class="float-card">
+        <div style="font-size:1.5rem; margin-bottom:8px;">🎁</div>
+        <div style="font-weight:600; font-size:0.9rem;">248 Donations</div>
+        <div style="font-size:0.8rem; color:var(--text-muted);">This month</div>
+      </div>
+      <div class="float-card">
+        <div style="font-size:1.5rem; margin-bottom:8px;">🏢</div>
+        <div style="font-weight:600; font-size:0.9rem;">56 NGOs</div>
+        <div style="font-size:0.8rem; color:var(--text-muted);">Verified partners</div>
+      </div>
+      <div class="float-card">
+        <div style="font-size:1.5rem; margin-bottom:8px;">🤝</div>
+        <div style="font-weight:600; font-size:0.9rem;">1,200+ Volunteers</div>
+        <div style="font-size:0.8rem; color:var(--text-muted);">Active members</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title">How <span class="text-gradient">Community Connect</span> Works</h2>
+      <p class="section-subtitle">
+        A seamless platform designed to bridge the gap between those who can give and those who need, with full transparency and tracking.
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-card animate-in">
+          <div class="feature-icon">🎁</div>
+          <h3>Donate Resources</h3>
+          <p>Post donations of food, clothes, educational materials, and more. Track your contributions from submission to delivery.</p>
+        </div>
+
+        <div class="feature-card animate-in">
+          <div class="feature-icon">🏢</div>
+          <h3>Discover NGOs</h3>
+          <p>Find verified non-profit organizations working in education, health, environment, and poverty alleviation. Connect directly with them.</p>
+        </div>
+
+        <div class="feature-card animate-in">
+          <div class="feature-icon">🙋</div>
+          <h3>Volunteer</h3>
+          <p>Coordinate collection and distribution activities. Log your volunteer hours and track your impact across the community.</p>
+        </div>
+
+        <div class="feature-card animate-in">
+          <div class="feature-icon">📊</div>
+          <h3>Impact Dashboard</h3>
+          <p>Visualize the collective social impact with real-time statistics, contribution breakdowns, and volunteer metrics.</p>
+        </div>
+
+        <div class="feature-card animate-in">
+          <div class="feature-icon">✅</div>
+          <h3>Request & Approval</h3>
+          <p>NGOs submit resource requests that go through transparent approval workflows. Donors and volunteers can directly fulfill needs.</p>
+        </div>
+
+        <div class="feature-card animate-in">
+          <div class="feature-icon">🔒</div>
+          <h3>Role-Based Access</h3>
+          <p>Secure role-based system with Admin, NGO, Donor, and Volunteer accounts — each with tailored dashboards and capabilities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SDG Section -->
+  <section class="sdg-section">
+    <div class="container">
+      <h2 class="section-title">Supporting the <span class="text-gradient">UN SDGs</span></h2>
+      <p class="section-subtitle">
+        Community Connect directly aligns with key United Nations Sustainable Development Goals.
+      </p>
+      <div class="sdg-grid">
+        <div class="sdg-item animate-in">
+          <div class="sdg-num" style="color: var(--accent-rose);">01</div>
+          <div class="sdg-label">No Poverty</div>
+        </div>
+        <div class="sdg-item animate-in">
+          <div class="sdg-num" style="color: var(--accent-amber);">02</div>
+          <div class="sdg-label">Zero Hunger</div>
+        </div>
+        <div class="sdg-item animate-in">
+          <div class="sdg-num" style="color: var(--accent-emerald);">03</div>
+          <div class="sdg-label">Good Health</div>
+        </div>
+        <div class="sdg-item animate-in">
+          <div class="sdg-num" style="color: var(--accent-blue);">04</div>
+          <div class="sdg-label">Quality Education</div>
+        </div>
+        <div class="sdg-item animate-in">
+          <div class="sdg-num" style="color: var(--accent-purple);">10</div>
+          <div class="sdg-label">Reduced Inequality</div>
+        </div>
+        <div class="sdg-item animate-in">
+          <div class="sdg-num" style="color: var(--accent-cyan);">17</div>
+          <div class="sdg-label">Partnerships</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section style="padding: 80px 0;">
+    <div class="container text-center">
+      <h2 class="section-title">Ready to Make a <span class="text-gradient">Difference</span>?</h2>
+      <p class="section-subtitle">
+        Join thousands of donors, volunteers, and organizations working together for a better world.
+      </p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="register.html" class="btn btn-primary btn-lg">Create Account</a>
+        <a href="ngos.html" class="btn btn-secondary btn-lg">Browse NGOs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Community Connect. Empowering communities through collective action.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Check if user is logged in and update nav
+    const token = localStorage.getItem('cc_token');
+    if (token) {
+      document.getElementById('nav-auth-links').classList.add('hidden');
+      document.getElementById('nav-dashboard-link').classList.remove('hidden');
+    }
+
+    function toggleMobileNav() {
+      const links = document.getElementById('nav-links');
+      links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    }
+  </script>
+</body>
+</html>
