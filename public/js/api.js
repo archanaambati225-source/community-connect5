@@ -180,3 +180,34 @@ function toggleMobileNav() {
     links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
   }
 }
+
+// Render registered member cards into a container
+function renderMemberCards(users, containerId, countId, detailKey) {
+  const container = document.getElementById(containerId);
+  const countEl = document.getElementById(countId);
+  if (!container) return;
+
+  const avatarColors = ['avatar-purple', 'avatar-blue', 'avatar-emerald', 'avatar-amber', 'avatar-rose'];
+
+  if (countEl) countEl.textContent = users.length;
+
+  if (users.length === 0) {
+    container.innerHTML = '<div class="members-empty">No members registered yet</div>';
+    return;
+  }
+
+  container.innerHTML = users.map((u, i) => {
+    const initial = u.name ? u.name.charAt(0).toUpperCase() : '?';
+    const colorClass = avatarColors[i % avatarColors.length];
+    const detail = detailKey && u[detailKey] ? u[detailKey] : u.email || '';
+    return `
+      <div class="member-card" style="animation-delay: ${i * 0.06}s">
+        <div class="member-avatar ${colorClass}">${initial}</div>
+        <div class="member-info">
+          <div class="member-name">${u.name}</div>
+          <div class="member-detail">${detail}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}

@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   loadActivities();
+  loadRegisteredVolunteers();
 
   document.getElementById('activityForm').addEventListener('submit', handleActivitySubmit);
 });
@@ -129,5 +130,16 @@ async function updateActivityStatus(id, newStatus) {
     loadActivities();
   } catch (error) {
     showToast(error.message, 'error');
+  }
+}
+
+// Load and display registered volunteers
+async function loadRegisteredVolunteers() {
+  try {
+    const volunteers = await apiRequest('/users?role=volunteer');
+    renderMemberCards(volunteers, 'volunteersList', 'volunteerCount', 'email');
+  } catch (error) {
+    const container = document.getElementById('volunteersList');
+    if (container) container.innerHTML = '<div class="members-empty">Failed to load volunteers</div>';
   }
 }

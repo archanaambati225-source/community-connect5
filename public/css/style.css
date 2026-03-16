@@ -1471,3 +1471,122 @@ textarea.form-control {
     flex-direction: column;
   }
 }
+
+/* ---- Registered Members Section ---- */
+.registered-members-section {
+  margin-bottom: 28px;
+}
+
+.registered-members-section .section-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.registered-members-section .section-heading h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.registered-members-section .section-heading .member-count {
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 20px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.members-scroll-row {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.3) transparent;
+}
+
+.members-scroll-row::-webkit-scrollbar {
+  height: 4px;
+}
+
+.members-scroll-row::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.4);
+  border-radius: 4px;
+}
+
+.member-card {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all var(--transition-normal);
+  cursor: default;
+  min-width: 180px;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.member-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(139, 92, 246, 0.35);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow-purple);
+}
+
+.member-card .member-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.member-card .member-avatar.avatar-purple { background: var(--gradient-primary); }
+.member-card .member-avatar.avatar-blue { background: var(--gradient-secondary); }
+.member-card .member-avatar.avatar-emerald { background: var(--gradient-success); }
+.member-card .member-avatar.avatar-amber { background: var(--gradient-warning); }
+.member-card .member-avatar.avatar-rose { background: var(--gradient-danger); }
+
+.member-card .member-info {
+  overflow: hidden;
+}
+
+.member-card .member-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.member-card .member-detail {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.members-empty {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+  padding: 12px 0;
+}

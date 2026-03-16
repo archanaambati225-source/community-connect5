@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Volunteer Activities on Community Connect - Coordinate collection, distribution, and community events.">
+  <meta name="description"
+    content="Volunteer Activities on Community Connect - Coordinate collection, distribution, and community events.">
   <title>Volunteer Activities - Community Connect</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <div class="bg-orbs">
     <div class="orb"></div>
@@ -52,12 +55,14 @@
     </aside>
 
     <main class="main-content">
-      <div class="page-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div class="page-header"
+        style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
         <div>
           <h1>🙋 Volunteer Activities</h1>
           <p>Coordinate collection, distribution, and community events</p>
         </div>
-        <button class="btn btn-primary" id="addActivityBtn" onclick="openActivityModal()" style="display:none;">+ Log Activity</button>
+        <button class="btn btn-primary" id="addActivityBtn" onclick="openActivityModal()" style="display:none;">+ Log
+          Activity</button>
       </div>
 
       <!-- Filters -->
@@ -74,6 +79,17 @@
           <option value="in-progress">In Progress</option>
           <option value="completed">Completed</option>
         </select>
+      </div>
+
+      <!-- Registered Volunteers -->
+      <div class="registered-members-section" id="registeredVolunteersSection">
+        <div class="section-heading">
+          <h3>🙋 Registered Volunteers</h3>
+          <span class="member-count" id="volunteerCount">0</span>
+        </div>
+        <div class="members-scroll-row" id="volunteersList">
+          <div class="spinner"></div>
+        </div>
       </div>
 
       <!-- Activities Timeline -->
@@ -131,4 +147,5 @@
   <script src="js/api.js"></script>
   <script src="js/volunteers.js"></script>
 </body>
+
 </html>

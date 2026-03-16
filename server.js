@@ -24,6 +24,7 @@ app.use('/api/ngos', require('./routes/ngos'));
 app.use('/api/requests', require('./routes/requests'));
 app.use('/api/activities', require('./routes/volunteers'));
 app.use('/api/dashboard', require('./routes/dashboard'));
+app.use('/api/users', require('./routes/users'));
 
 // Serve index.html for root
 app.get('/', (req, res) => {

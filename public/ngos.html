@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover verified NGOs on Community Connect - Find organizations working in education, health, environment, and more.">
+  <meta name="description"
+    content="Discover verified NGOs on Community Connect - Find organizations working in education, health, environment, and more.">
   <title>Discover NGOs - Community Connect</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <div class="bg-orbs">
     <div class="orb"></div>
@@ -52,17 +55,20 @@
     </aside>
 
     <main class="main-content">
-      <div class="page-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div class="page-header"
+        style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
         <div>
           <h1>🏢 Discover NGOs</h1>
           <p>Find and connect with verified non-profit organizations</p>
         </div>
-        <button class="btn btn-primary" id="addNGOBtn" onclick="openNGOModal()" style="display:none;">+ Register NGO</button>
+        <button class="btn btn-primary" id="addNGOBtn" onclick="openNGOModal()" style="display:none;">+ Register
+          NGO</button>
       </div>
 
       <!-- Filters -->
       <div class="filter-bar">
-        <input type="text" class="form-control search-input" id="searchNGO" placeholder="🔍 Search NGOs..." oninput="loadNGOs()">
+        <input type="text" class="form-control search-input" id="searchNGO" placeholder="🔍 Search NGOs..."
+          oninput="loadNGOs()">
         <select class="form-control" id="filterCategory" onchange="loadNGOs()">
           <option value="">All Categories</option>
           <option value="education">📚 Education</option>
@@ -73,6 +79,17 @@
           <option value="equality">⚖️ Equality</option>
           <option value="other">📦 Other</option>
         </select>
+      </div>
+
+      <!-- Registered NGO Members -->
+      <div class="registered-members-section" id="registeredNGOsSection">
+        <div class="section-heading">
+          <h3>🏢 Registered NGO Members</h3>
+          <span class="member-count" id="ngoMemberCount">0</span>
+        </div>
+        <div class="members-scroll-row" id="ngoMembersList">
+          <div class="spinner"></div>
+        </div>
       </div>
 
       <!-- NGOs Grid -->
@@ -108,11 +125,13 @@
         </div>
         <div class="form-group">
           <label class="form-label" for="ngoDescription">Description</label>
-          <textarea id="ngoDescription" class="form-control" placeholder="Describe your organization..." required></textarea>
+          <textarea id="ngoDescription" class="form-control" placeholder="Describe your organization..."
+            required></textarea>
         </div>
         <div class="form-group">
           <label class="form-label" for="ngoMission">Mission Statement</label>
-          <textarea id="ngoMission" class="form-control" placeholder="Your mission..." style="min-height:70px;"></textarea>
+          <textarea id="ngoMission" class="form-control" placeholder="Your mission..."
+            style="min-height:70px;"></textarea>
         </div>
         <div class="form-group">
           <label class="form-label" for="ngoAddress">Address</label>
@@ -132,4 +151,5 @@
   <script src="js/api.js"></script>
   <script src="js/ngos.js"></script>
 </body>
+
 </html>

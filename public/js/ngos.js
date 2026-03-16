@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   loadNGOs();
+  loadRegisteredNGOs();
 
   document.getElementById('ngoForm').addEventListener('submit', handleNGOSubmit);
 });
@@ -119,5 +120,16 @@ async function verifyNGO(id) {
     loadNGOs();
   } catch (error) {
     showToast(error.message, 'error');
+  }
+}
+
+// Load and display registered NGO members
+async function loadRegisteredNGOs() {
+  try {
+    const ngoUsers = await apiRequest('/users?role=ngo');
+    renderMemberCards(ngoUsers, 'ngoMembersList', 'ngoMemberCount', 'organization');
+  } catch (error) {
+    const container = document.getElementById('ngoMembersList');
+    if (container) container.innerHTML = '<div class="members-empty">Failed to load NGO members</div>';
   }
 }

@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   loadDonations();
+  loadRegisteredDonors();
 
   // Form submit
   document.getElementById('donationForm').addEventListener('submit', handleDonationSubmit);
@@ -67,7 +68,7 @@ async function loadDonations() {
               <button class="btn btn-success btn-sm" onclick="claimDonation('${d._id}')">Claim</button>
             ` : ''}
             ${user && (d.donor?._id === user._id || user.role === 'admin') ? `
-              <button class="btn btn-secondary btn-sm" onclick="editDonation('${d._id}', '${encodeURIComponent(JSON.stringify({title: d.title, category: d.category, description: d.description, quantity: d.quantity, unit: d.unit, location: d.location}))}')">Edit</button>
+              <button class="btn btn-secondary btn-sm" onclick="editDonation('${d._id}', '${encodeURIComponent(JSON.stringify({ title: d.title, category: d.category, description: d.description, quantity: d.quantity, unit: d.unit, location: d.location }))}')">Edit</button>
               <button class="btn btn-danger btn-sm" onclick="deleteDonation('${d._id}')">Delete</button>
             ` : ''}
           </div>
@@ -160,5 +161,16 @@ async function deleteDonation(id) {
     loadDonations();
   } catch (error) {
     showToast(error.message, 'error');
+  }
+}
+
+// Load and display registered donors
+async function loadRegisteredDonors() {
+  try {
+    const donors = await apiRequest('/users?role=donor');
+    renderMemberCards(donors, 'donorsList', 'donorCount', 'email');
+  } catch (error) {
+    const container = document.getElementById('donorsList');
+    if (container) container.innerHTML = '<div class="members-empty">Failed to load donors</div>';
   }
 }
