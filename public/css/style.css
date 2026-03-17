@@ -2090,6 +2090,7 @@ textarea.form-control {
   position: relative;
   padding: 80px 0 50px;
   margin-top: 64px;
+  padding-left: 260px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2255,5 +2256,12 @@ textarea.form-control {
 
   .page-banner h1 {
     font-size: 1.5rem;
+  }
+}
+
+/* Align page banner with sidebar on desktop */
+@media (max-width: 1024px) {
+  .page-banner {
+    padding-left: 0;
   }
 }
