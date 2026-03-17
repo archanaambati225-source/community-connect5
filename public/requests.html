@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Resource Requests on Community Connect - Submit, approve, and fulfill resource requests from NGOs.">
+  <meta name="description"
+    content="Resource Requests on Community Connect - Submit, approve, and fulfill resource requests from NGOs.">
   <title>Requests - Community Connect</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <div class="bg-orbs">
-    <div class="orb"></div>
-    <div class="orb"></div>
-    <div class="orb"></div>
-  </div>
 
+<body>
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="navbar-brand">
@@ -52,12 +49,14 @@
     </aside>
 
     <main class="main-content">
-      <div class="page-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div class="page-header"
+        style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
         <div>
           <h1>📋 Resource Requests</h1>
           <p>Submit, approve, and fulfill resource needs</p>
         </div>
-        <button class="btn btn-primary" id="addRequestBtn" onclick="openRequestModal()" style="display:none;">+ New Request</button>
+        <button class="btn btn-primary" id="addRequestBtn" onclick="openRequestModal()" style="display:none;">+ New
+          Request</button>
       </div>
 
       <!-- Filters -->
@@ -103,7 +102,8 @@
       <form id="requestForm">
         <div class="form-group">
           <label class="form-label" for="reqTitle">Title</label>
-          <input type="text" id="reqTitle" class="form-control" placeholder="e.g., Educational supplies for school" required>
+          <input type="text" id="reqTitle" class="form-control" placeholder="e.g., Educational supplies for school"
+            required>
         </div>
         <div class="form-group">
           <label class="form-label" for="reqCategory">Category</label>
@@ -117,7 +117,8 @@
         </div>
         <div class="form-group">
           <label class="form-label" for="reqDescription">Description</label>
-          <textarea id="reqDescription" class="form-control" placeholder="Describe the need in detail..." required></textarea>
+          <textarea id="reqDescription" class="form-control" placeholder="Describe the need in detail..."
+            required></textarea>
         </div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
           <div class="form-group">
@@ -144,4 +145,5 @@
   <script src="js/api.js"></script>
   <script src="js/requests.js"></script>
 </body>
+
 </html>
