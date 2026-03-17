@@ -35,7 +35,22 @@
     </div>
   </nav>
 
-  <div class="page-wrapper">
+  <!-- Page Banner -->
+  <section class="page-banner banner-ngos">
+    <div class="container"
+      style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div>
+        <h1>🏢 Discover NGOs</h1>
+        <p>Find and connect with verified non-profit organizations</p>
+      </div>
+      <div class="banner-actions">
+        <button class="btn btn-outline-white" id="addNGOBtn" onclick="openNGOModal()" style="display:none;">+ Register
+          NGO</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-wrapper has-banner">
     <aside class="sidebar">
       <div class="sidebar-section-title">Main</div>
       <ul class="sidebar-nav">
@@ -49,15 +64,6 @@
     </aside>
 
     <main class="main-content">
-      <div class="page-header"
-        style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-        <div>
-          <h1>🏢 Discover NGOs</h1>
-          <p>Find and connect with verified non-profit organizations</p>
-        </div>
-        <button class="btn btn-primary" id="addNGOBtn" onclick="openNGOModal()" style="display:none;">+ Register
-          NGO</button>
-      </div>
 
       <!-- Filters -->
       <div class="filter-bar">

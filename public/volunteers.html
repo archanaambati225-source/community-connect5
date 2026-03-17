@@ -35,7 +35,22 @@
     </div>
   </nav>
 
-  <div class="page-wrapper">
+  <!-- Page Banner -->
+  <section class="page-banner banner-volunteers">
+    <div class="container"
+      style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div>
+        <h1>🙋 Volunteer Activities</h1>
+        <p>Coordinate collection, distribution, and community events</p>
+      </div>
+      <div class="banner-actions">
+        <button class="btn btn-outline-white" id="addActivityBtn" onclick="openActivityModal()" style="display:none;">+
+          Log Activity</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-wrapper has-banner">
     <aside class="sidebar">
       <div class="sidebar-section-title">Main</div>
       <ul class="sidebar-nav">
@@ -49,15 +64,6 @@
     </aside>
 
     <main class="main-content">
-      <div class="page-header"
-        style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-        <div>
-          <h1>🙋 Volunteer Activities</h1>
-          <p>Coordinate collection, distribution, and community events</p>
-        </div>
-        <button class="btn btn-primary" id="addActivityBtn" onclick="openActivityModal()" style="display:none;">+ Log
-          Activity</button>
-      </div>
 
       <!-- Filters -->
       <div class="filter-bar">

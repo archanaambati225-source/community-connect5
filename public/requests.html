@@ -35,7 +35,22 @@
     </div>
   </nav>
 
-  <div class="page-wrapper">
+  <!-- Page Banner -->
+  <section class="page-banner banner-requests">
+    <div class="container"
+      style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div>
+        <h1>📋 Resource Requests</h1>
+        <p>Submit, approve, and fulfill resource needs</p>
+      </div>
+      <div class="banner-actions">
+        <button class="btn btn-outline-white" id="addRequestBtn" onclick="openRequestModal()" style="display:none;">+
+          New Request</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-wrapper has-banner">
     <aside class="sidebar">
       <div class="sidebar-section-title">Main</div>
       <ul class="sidebar-nav">
@@ -49,15 +64,6 @@
     </aside>
 
     <main class="main-content">
-      <div class="page-header"
-        style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-        <div>
-          <h1>📋 Resource Requests</h1>
-          <p>Submit, approve, and fulfill resource needs</p>
-        </div>
-        <button class="btn btn-primary" id="addRequestBtn" onclick="openRequestModal()" style="display:none;">+ New
-          Request</button>
-      </div>
 
       <!-- Filters -->
       <div class="filter-bar">
